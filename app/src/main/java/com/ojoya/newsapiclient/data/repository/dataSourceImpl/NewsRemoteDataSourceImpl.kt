@@ -6,11 +6,9 @@ import com.ojoya.newsapiclient.data.repository.dataSource.NewsRemoteDataSource
 import retrofit2.Response
 
 class NewsRemoteDataSourceImpl(
-    private val newsAPIService: NewsAPIService,
-    private val country: String,
-    private val page: Int
+    private val newsAPIService: NewsAPIService
 ) : NewsRemoteDataSource {
 
-    override suspend fun getNewsHeadlines(): Response<APIResponse> =
+    override suspend fun getNewsHeadlines(country: String, page: Int): Response<APIResponse> =
         newsAPIService.getNewsHeadlines(country, page)
 }
